@@ -90,13 +90,14 @@ public class main extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
+		contentPane.setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setBounds(-14, -11, 478, 371);
 		lblNewLabel.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\usuario\\eclipse-workspace\\ApsPOO\\img\\caveira.jpg"));
-		contentPane.add(lblNewLabel, BorderLayout.NORTH);
+		contentPane.add(lblNewLabel);
 	}
 
 }
