@@ -37,7 +37,7 @@ public class main extends JFrame {
 		});
 	}
 
-	/**
+	 /**
 	 * Create the frame.
 	 */
 	public main() {

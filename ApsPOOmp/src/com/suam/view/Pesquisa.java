@@ -8,6 +8,9 @@ import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+
+import com.suam.av1.Empresa;
+
 import javax.swing.border.BevelBorder;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
@@ -20,12 +23,13 @@ import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.awt.event.ActionEvent;
 
 public class Pesquisa extends JFrame {
 
 	private JPanel contentPane;
-	private JTable table;
+	private JTable tbl_emp;
 	private JLabel lblNewLabel_1;
 	private JLabel lblNewLabel_2;
 	private JLabel lblNewLabel_3;
@@ -42,6 +46,8 @@ public class Pesquisa extends JFrame {
 	private JLabel lblNewLabel_7;
 	private JLabel lblNewLabel_8;
 	private JLabel lblNewLabel_9;
+	
+	ArrayList<Empresa>ListaEmp;
 
 	/**
 	 * Launch the application.
@@ -63,6 +69,8 @@ public class Pesquisa extends JFrame {
 	 * Create the frame.
 	 */
 	public Pesquisa() {
+		ListaEmp = new ArrayList();
+
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 593, 482);
 		contentPane = new JPanel();
@@ -70,23 +78,17 @@ public class Pesquisa extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);		
 		
-		table = new JTable();
-		table.setShowGrid(false);
-		table.setShowHorizontalLines(false);
-		table.setCellSelectionEnabled(true);
-		table.setColumnSelectionAllowed(true);
-		table.setBorder(new LineBorder(new Color(0, 128, 0), 2, true));
-		table.setForeground(new Color(255, 255, 255));
-		table.setBackground(new Color(0, 0, 0));
-		table.setFont(new Font("Source Sans Pro", Font.PLAIN, 15));
-		table.setModel(new DefaultTableModel(
+		tbl_emp = new JTable();
+		tbl_emp.setShowGrid(false);
+		tbl_emp.setShowHorizontalLines(false);
+		tbl_emp.setCellSelectionEnabled(true);
+		tbl_emp.setColumnSelectionAllowed(true);
+		tbl_emp.setBorder(new LineBorder(new Color(0, 128, 0), 2, true));
+		tbl_emp.setForeground(new Color(255, 255, 255));
+		tbl_emp.setBackground(new Color(0, 0, 0));
+		tbl_emp.setFont(new Font("Source Sans Pro", Font.PLAIN, 15));
+		tbl_emp.setModel(new DefaultTableModel(
 			new Object[][] {
-				{"1", "Unisuam", "111.111.111-2", "Marcos", "Paulo"},
-				{"2", "Estacio", "155.121.131-2", "Victor", "Paulo"},
-				{"3", "UERJ", "111.111.111-2", "Pedro", "Paulo"},
-				{"4", "UFRJ", "111.111.111-2", "Lucas", "Paulo"},
-				{null, null, null, null, null},
-				{null, null, null, null, null},
 			},
 			new String[] {
 				"ID", "Empresa", "CNPJ", "Funcionario", "Cliente"
@@ -99,7 +101,7 @@ public class Pesquisa extends JFrame {
 				return columnTypes[columnIndex];
 			}
 		});
-		table.getColumnModel().getColumn(2).setPreferredWidth(95);
+		tbl_emp.getColumnModel().getColumn(2).setPreferredWidth(95);
 		
 		lblNewLabel_9 = new JLabel("Cliente");
 		lblNewLabel_9.setFont(new Font("Arial Rounded MT Bold", Font.BOLD, 13));
@@ -170,8 +172,8 @@ public class Pesquisa extends JFrame {
 		btnNewButton.setBackground(new Color(0, 128, 128));
 		btnNewButton.setBounds(263, 170, 89, 23);
 		contentPane.add(btnNewButton);
-		table.setBounds(10, 242, 557, 190);
-		contentPane.add(table);
+		tbl_emp.setBounds(10, 242, 557, 190);
+		contentPane.add(tbl_emp);
 		
 		lblNewLabel_1 = new JLabel("ID");
 		lblNewLabel_1.setForeground(new Color(255, 255, 255));
