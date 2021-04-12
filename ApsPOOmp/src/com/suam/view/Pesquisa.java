@@ -151,9 +151,7 @@ public class Pesquisa extends JFrame {
 		btnNewButton_2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				//Redirecionar para tela principal
-				main viewMain = new main(); 
-				viewMain.setVisible(true);
-				dispose();
+				
 			}
 		});
 		btnNewButton_2.setBackground(new Color(128, 0, 0));
