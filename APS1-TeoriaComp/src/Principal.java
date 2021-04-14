@@ -1,37 +1,48 @@
 import javax.swing.JOptionPane;
 
 public class Principal {
-	public static void main(String[]args) {
-		String string = JOptionPane.showInputDialog("Digite aqui seu alfabeto");
-		CharSequence ch;
+	public static void main(String[] args) {
 		
-		boolean value = false;
-		
-		while(!value) {	
-		ch = JOptionPane.showInputDialog("Digite uma palavra");
-		value = string.contains(ch);
-		
-		if(value == true) {
-			JOptionPane.showMessageDialog(null, montaExibicao(ch, string));
-		} 
-		if(value !=true ) {
-			JOptionPane.showMessageDialog(null, montaExibicaoErro(ch, string));
+		String alfabeto = JOptionPane.showInputDialog("Digite aqui seu alfabeto");
+
+		String arrayAlfabeto[] = new String[100];
+
+		arrayAlfabeto = alfabeto.split(",");
+
+		String palavra = JOptionPane.showInputDialog("Digite uma palavra");
+
+		boolean situacao = VerificarAlfabeto(palavra, arrayAlfabeto);
+
+		if (situacao == true) {
+			JOptionPane.showMessageDialog(null, montaExibicao(palavra, alfabeto));
+		}else {
+			JOptionPane.showMessageDialog(null, montaExibicaoErro(palavra, alfabeto));
 		}
-	  }
-		System.exit(0);
 	}
-	public static String montaExibicao(CharSequence ch,String string) {
+
+	public static boolean VerificarAlfabeto(String palavra, String[] arrayAlfabeto) {
+		boolean status = false;
+		for (int i = 0; i < arrayAlfabeto.length; i++) {
+			if (palavra.contains(arrayAlfabeto[i])) {
+				status = true;
+			}
+		}
+		return status;
+	}
+
+	public static String montaExibicao(String ch, String str) {
 		String exibicao = "";
-		exibicao+=" ===================\n";
-		exibicao+="A palavra "+ch+" pertence a palavra ∑ "+string;
-		exibicao+="\n ===================";
+		exibicao += " ===================================================\n";
+		exibicao += "A palavra " + ch + " pertence a conjunto de palavras do alfabeto ∑ " + str;
+		exibicao += "\n ===================================================";
 		return exibicao;
 	}
-	public static String montaExibicaoErro(CharSequence ch,String string) {
+
+	public static String montaExibicaoErro(CharSequence ch, String string) {
 		String exibicao = "";
-		exibicao+=" ===================\n";
-		exibicao+="A palavra "+ch+ " não pertence a palavra ∑ "+string;
-		exibicao+="\n ===================";
+		exibicao += " =====================================================\n";
+		exibicao += "A palavra " + ch + " não pertence a conjunto de palavras do alfabeto ∑ " + string;
+		exibicao += "\n =====================================================";
 		return exibicao;
 	}
 }
