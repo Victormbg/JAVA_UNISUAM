@@ -2,22 +2,25 @@ import javax.swing.JOptionPane;
 
 public class Principal {
 	public static void main(String[] args) {
-		
-		String alfabeto = JOptionPane.showInputDialog("Digite aqui seu alfabeto");
+		int i = 0;
+		do {
+			String alfabeto = JOptionPane.showInputDialog("Digite aqui seu alfabeto");
 
-		String arrayAlfabeto[] = new String[100];
+			String arrayAlfabeto[] = new String[100];
 
-		arrayAlfabeto = alfabeto.split(",");
+			arrayAlfabeto = alfabeto.split(",");
 
-		String palavra = JOptionPane.showInputDialog("Digite uma palavra");
+			String palavra = JOptionPane.showInputDialog("Digite uma palavra");
 
-		boolean situacao = VerificarAlfabeto(palavra, arrayAlfabeto);
+			boolean situacao = VerificarAlfabeto(palavra, arrayAlfabeto);
 
-		if (situacao == true) {
-			JOptionPane.showMessageDialog(null, montaExibicao(palavra, alfabeto));
-		}else {
-			JOptionPane.showMessageDialog(null, montaExibicaoErro(palavra, alfabeto));
-		}
+			if (situacao == true) {
+				JOptionPane.showMessageDialog(null, montaExibicao(palavra, alfabeto));
+			} else {
+				JOptionPane.showMessageDialog(null, montaExibicaoErro(palavra, alfabeto));
+			}
+
+		} while (i != 1);
 	}
 
 	public static boolean VerificarAlfabeto(String palavra, String[] arrayAlfabeto) {
